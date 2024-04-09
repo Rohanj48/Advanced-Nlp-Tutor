@@ -13,4 +13,11 @@ const quill = new Quill('#editor', {
 function submit_button_quill(){
 
     console.log(quill.getContents());
+    jQuery.ajax({
+        url:"/test",
+        type:"POST",
+        contentType: "application/json",
+        data: JSON.stringify(quill.getContents())});
+
+    
 }
