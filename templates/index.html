@@ -21,7 +21,14 @@
             <div id="editor"></div>
         </div>
         
-        <div id="sidebox"></div>
+        <div id="sidebox">
+            {% for item in suggestion_list %}
+                <div>
+                <p>{{item}}</p>
+                </div>
+            {% endfor %}
+
+        </div>
         
         
     </div>
