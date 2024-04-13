@@ -15,7 +15,9 @@ def index():
 @app.route('/test', methods=['POST'])
 def test():
     output = request.get_json()
-    print(output)
+    #print(type(output["ops"]))
+    for i in output["ops"]:
+        print(i["insert"])
     return output
 
 
