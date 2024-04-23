@@ -13,7 +13,7 @@ app= Flask(__name__)
 
 
 def index():
-    suggestion_list=["hi berooo","how areeee you"]
+    suggestion_list=[""]
     list_count = len(suggestion_list)    
     return render_template("index.html",suggestion_list=suggestion_list,list_count=list_count)
 
