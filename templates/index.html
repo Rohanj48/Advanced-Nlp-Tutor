@@ -18,13 +18,19 @@
     <div class="OuterBox">
         
         <div id="editor-div">
-            <div id="editor"></div>
+            <div id="editor">
+                {{qq}}
+            </div>
         </div>
         
         <div id="sidebox">
-            {% for item in suggestion_list %}
-                <div>
-                <p>{{item}}</p>
+            {% for item in sugg %}
+               
+                <div class="red">
+                    <p>{{item[0]}}</p>
+                </div>
+                <div class="green">
+                    <p>{{item[1]}}</p>
                 </div>
             {% endfor %}
 
@@ -32,7 +38,12 @@
         
         
     </div>
-    <button type="submit" id="sub" onclick="submit_button_quill()">Submit</button>
+    <div>
+        <button type="submit" id="sub" onclick="submit_button_quill() ">Submit</button>
+        <a href="/">hii</a>
+    
+    </div>>
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src = "/static/script1.js"></script>
    

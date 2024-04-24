@@ -2,29 +2,53 @@
 .OuterBox{
 
 
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
     width: 100%;
-    height: 1000px;
+    height: 800px;
 
     display: flex;
     align-items: flex-start;
 
 }
+
 .OuterBox #editor-div{
     width: 60%;
-    height: 100%; 
+   
+    height: calc(100% - 75px);
     
 }
 #editor{
-    font-size: 2rem;
+    font-size: 1.5rem;
+     
 }
 .OuterBox #sidebox{
-    width: 40%;
+    width: 35%;
     height: 100%;
 
-    margin-left: 5%;
-    margin-right: 7%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 
     background-color: #EBEBEB;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebox .green{
+    width: 93%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 2%;
+    background-color: #18c91d;
+    border-radius: 10px 10px 10px 10px;
+}
+#sidebox .red{
+    width: 93%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 2%;
+    background-color: #d04848;
+    border-radius: 10px 10px 10px 10px;
+
 }
