@@ -1,3 +1,7 @@
+install git
+```
+git clone https://github.com/Rohanj48/Advanced-Nlp-Tutor.git
+```
 
 To run
 ```
