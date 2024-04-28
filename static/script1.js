@@ -1,3 +1,9 @@
+
+
+sidebox = document.querySelector("#sidebox")
+
+correction_list = []
+btnlist = []
 var toolbarOptions = [
     [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
     [{ 'font': [] }],
@@ -19,7 +25,10 @@ var toolbarOptions = [
   ['clean']                                         // remove formatting button
 ];
 
+const action = function(e) {
+  console.log(e);
 
+}
 const quill = new Quill('#editor', {
     modules:{
         toolbar:toolbarOptions
@@ -31,12 +40,41 @@ const quill = new Quill('#editor', {
 function submit_button_quill(){
     // location.href='/'
     console.log(quill.getContents());
+    
+
+
     jQuery.ajax({
         url:"/sendto",
         type:"POST",
         contentType: "application/json",
-        data: JSON.stringify(quill.getContents())});
-
-
+        data: JSON.stringify(quill.getContents()),
+        success: function(correction_object){
+          sidebox.innerHTML = correction_object;
+          jQuery.ajax({
+            url:"/update",
+            type:"POST",
+            contentType: "application/json",
+            data: "hi",
+            success: function(correction_object1){
+              
+              correction_list = correction_object1;
+              console.log("correction Updated")
+              console.log(correction_list)
     
+            }
+          
+          }
+          ); 
+
+        }
+      
+      }
+      ); 
+        
+      
 }
+
+function updad(element,id){
+  console.log(correction_list[id])
+}
+

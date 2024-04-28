@@ -1,42 +1,48 @@
+import correction_api
 from flask import Flask,render_template,redirect
 from flask import request
-import json
+from flask import jsonify
 
-import correction_api
 app= Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 tutor = correction_api.Tutor(); 
 
-quilq=""
 @app.route("/")
 @app.route("/home")
-
 def index():
 
-    print(tutor.get_suggestion())  
-    return render_template("index.html",sugg=tutor.get_suggestion(),qq = quilq)
+    print(tutor.get_suggestion_list())  
+    return render_template("index.html",sugg=tutor.get_suggestion_list())
 
 
 @app.route('/sendto', methods=['POST'])
 def sendto():
-    global quilq
-    output = request.get_json()
+
     res_str=""
-    #print(type(output["ops"]))
-    output_file = open("output.txt", "w")
+
+    output = request.get_json()
+
     for i in output["ops"]:
         res_str+=i["insert"]
-        quilq+=i["insert"]
-        output_file.write(i["insert"])
 
-    output_file.close()
+    api_result = tutor.send(res_str)
+    tutor.make_correction_list(api_result)
+
+    print(api_result)
     
-    outtt = tutor.send(res_str)
-    print(outtt)
-    tutor.make_correction_list(outtt)
+    return render_template("correction_template.html",sugg=tutor.get_suggestion_list())
+
+@app.route('/result',methods=['GET'])
+
+def temm():
+    return render_template("correction_template.html",sugg=tutor.get_suggestion_list())
+
+@app.route('/update',methods=['POST'])
+def updattt():
     
-    return redirect("/")
+    return jsonify(tutor.sugg_list)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

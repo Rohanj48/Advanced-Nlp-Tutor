@@ -1,3 +1,0 @@
-Problem Statement: To improve the lack of physical activities among teenagers of today while implementing a delivery system for small/local shops.
-Solution: Implementing an app that allows anyone to deliver things from shops to the buyer's doorsteps while aiming to improve the physical and social health of the volunteers while also providing them with a small stipend.
-

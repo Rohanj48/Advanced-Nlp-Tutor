@@ -1,0 +1,14 @@
+{% for item in sugg %}
+               
+<div class="red">
+    <p>{{item[0]}}</p>
+</div>
+<div class="green">
+    <p>{{item[1]}}</p>
+</div>
+
+
+    
+    <button onclick="updad(this,'{{loop.index0}}')" >replace</button>
+  
+{% endfor %}
