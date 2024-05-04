@@ -37,7 +37,7 @@ const quill = new Quill('#editor', {
   });
 
 
-function submit_button_quill(){
+  function submit_button_quill(){
     // location.href='/'
     console.log(quill.getContents());
     
@@ -74,7 +74,13 @@ function submit_button_quill(){
       
 }
 
-function updad(element,id){
-  console.log(correction_list[id])
+
+function updad(element, id) {
+  var newText = sidebox.querySelectorAll('.green p')[id].innerText; // Get the new corrected text from the green box
+
+  // Replace the content of the Quill editor with the new corrected text
+  quill.setText(newText);
+
+  // Optionally, you can also update the correction list or perform any other actions here
 }
 

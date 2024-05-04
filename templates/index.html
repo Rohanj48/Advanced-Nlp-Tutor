@@ -10,44 +10,29 @@
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.3/dist/quill.snow.css" rel="stylesheet" />
     <!-- Include the Quill library -->
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.3/dist/quill.js"></script>
-    
-
 </head>
 <body>
     
     <div class="OuterBox">
-        
         <div id="editor-div">
-            <div id="editor">
-              
-            </div>
+            <div id="editor"></div>
         </div>
-        
         <div id="sidebox">
-            {% for item in sugg %}
-               
-                <div class="red">
-                    <p>{{item[0]}}</p>
-                </div>
-                <div class="green">
-                    <p>{{item[1]}}</p>
-                </div>
-                
-            {% endfor %}
-            {{ll}}
+            <div class="red" id="userInputArea"></div>
+            <div class="green" id="outputArea"></div>
+            <button onclick="replaceText()">Replace</button>
         </div>
-        
-        
     </div>
     <div>
-        <button type="submit" id="sub" onclick="submit_button_quill() ">Submit</button>
-    </div>>
+        <button type="submit" id="sub" onclick="submit_button_quill()">Submit</button>
+    </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src = "/static/script1.js"></script>
+    <script src="/static/script1.js"></script>
    
 </body>
 </html>
+
 
 
 
