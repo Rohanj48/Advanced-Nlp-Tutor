@@ -93,12 +93,9 @@ function updad(element, id) {
 function download_file() {
 	const delta = quill.getContents();
 
-    // we pass the delta object to the generatePdf function of the pdfExporter
-    // be sure to AWAIT the result, because it returns a Promise
-    // it will resolve to a Blob of the PDF document
-    const blob =  pdfExporter.generatePdf(delta);
-
-    // we use saveAs from the file-saver package to download the blob
-    saveAs(blob, "pdf-export.pdf");
+    const ele = document.querySelector('#editor');
+	html2pdf()
+	.from(ele)
+	.save('Corrected-output.pdf');
 }
 

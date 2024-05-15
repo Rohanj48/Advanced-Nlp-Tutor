@@ -7,6 +7,7 @@ app= Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 tutor = correction_api.Tutor(); 
+int_corrections = 0
 
 @app.route("/")
 @app.route("/home")

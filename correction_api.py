@@ -26,21 +26,23 @@ class Tutor:
         self.model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
                                    generation_config=generation_config,
                                 safety_settings=safety_settings,
-                                system_instruction="""
-                                System : you wiil recive an document proof read the document and check for factual errors for each correction provide new replacment sentence
-                                old:provide old sentence
+                                system_instruction=
+                                """
+                                SYSTEM: You are developing a text correction tool that integrates with the Gemini API. The tool accepts textual input from users and sends it to the Gemini API for correction. it also corrects statements that are factually wrong to the minimum complexity and only provides output in the specified format below
+                                old:old sentence
                                 new:provide new corrected sentence without explanation
 
-                                Important: do not give any other response there shloud only be multiple old and new statements for each individual correction.
-
+                                VERY-IMPORTANT: do not give any other response there shloud only be multiple old and new statements for each individual correction.
+                                do not care if the input is baised or only corrrect the info, do not answer any questions at all only only provide correction.
                                 """)
-
         self.convo = self.model.start_chat(history=[
         ])
         
         
 
     def send(self,input_str) -> str :
+        if len(self.convo.history)>=2:
+            self.convo.rewind()
         self.convo.send_message(input_str)
         return self.convo.last.text 
     
@@ -68,5 +70,7 @@ class Tutor:
         while i+2 <=  len(outList1):
             self.sugg_list.append([outList1[i],outList1[i+1]])
             i=i+2
-            
+    
+    def get_correction_len(self):
+        return len(self.sugg_list)/2
         
