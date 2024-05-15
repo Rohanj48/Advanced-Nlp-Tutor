@@ -75,6 +75,18 @@ function submit_button_quill(){
 }
 
 function updad(element,id){
-  console.log(correction_list[id])
+  //console.log(correction_list[id]);
+  let contents = quill.getContents();
+
+  for ( let i in contents.ops){
+    let newstr = contents.ops[i].insert.replace(correction_list[id][0].trim(),correction_list[id][1]);
+    contents.ops[i].insert = newstr;
+    console.log(correction_list[id][0]);console.log(correction_list[id][1])
+    console.log(newstr);
+    //console.log(contents.ops[i]);
+  }
+  quill.setContents(contents);
+  console.log(contents);
+
 }
 
