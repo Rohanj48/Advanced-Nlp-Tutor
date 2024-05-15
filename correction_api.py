@@ -47,8 +47,8 @@ class Tutor:
 
     def get_suggestion_list(self) -> list:
         for i in range(len(self.sugg_list)):
-            self.sugg_list[i][0]=self.sugg_list[i][0].replace("/n","")
-            self.sugg_list[i][1]=self.sugg_list[i][1].replace("/n","")
+            self.sugg_list[i][0]=self.sugg_list[i][0].strip()
+            self.sugg_list[i][1]=self.sugg_list[i][1].strip()
         return self.sugg_list
 
     def make_correction_list(self,input_str):
@@ -69,5 +69,4 @@ class Tutor:
             self.sugg_list.append([outList1[i],outList1[i+1]])
             i=i+2
             
-        
         
