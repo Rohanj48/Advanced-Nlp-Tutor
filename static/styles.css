@@ -175,3 +175,12 @@ width: 289px;
 height: 28x;
 background-color: #363aab;
 }
+
+
+.csvg{
+    
+    transform: scale(3.5);
+    filter: invert(100%);
+    max-width: 12px;
+    max-height: 12px;
+}
