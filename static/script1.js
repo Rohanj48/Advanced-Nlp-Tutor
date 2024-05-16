@@ -60,6 +60,8 @@ function submit_button_quill() {
 					correction_list = correction_object1;
 					console.log("correction Updated")
 					console.log(correction_list)
+					var popup = document.querySelector(".ptext");
+  					popup.innerHTML = "Corrections : " + correction_list.length;
 
 				}
 
@@ -70,7 +72,7 @@ function submit_button_quill() {
 
 	}
 	);
-
+	
 
 }
 

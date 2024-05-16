@@ -26,15 +26,14 @@ class Tutor:
         self.model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
                                    generation_config=generation_config,
                                 safety_settings=safety_settings,
-                                system_instruction=
-                                """
-                                SYSTEM: You are developing a text correction tool that integrates with the Gemini API. The tool accepts textual input from users and sends it to the Gemini API for correction. it also corrects statements that are factually wrong to the minimum complexity and only provides output in the specified format below
+                                system_instruction="""
+                                SYSTEM: You are developing a text correction tool that integrates with the Gemini API. The tool accepts textual input from users and sends it to Gemini for correction. it also corrects statements for spelling, grammatical and factual errors. it only provides output in the specified format below
                                 old:old sentence
                                 new:provide new corrected sentence without explanation
 
-                                VERY-IMPORTANT: do not give any other response there shloud only be multiple old and new statements for each individual correction.
-                                do not care if the input is baised or only corrrect the info, do not answer any questions at all only only provide correction.
-                                """)
+                                VERY-IMPORTANT: do not give any other response there should only be multiple old and new statements for each individual correction.
+                                do not care if the input is biased or only correct the info,DO NOT ANSWER ANY QUESTIONS , YOU ARE TO ACT LIKE GRAMMARLY. DO NOT SOLVE ANY QUESTIONS OR PROVIDE SOLUTIONS TO ANY STATEMENT.
+                """)
         self.convo = self.model.start_chat(history=[
         ])
         
